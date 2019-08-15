@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset='utf-8'>
+    <title>Todoアプリ</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- jQuery 導入 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
+    <!-- カレンダーのデザイン -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/redmond/jquery-ui.css" >
+
+
+</head>
+<body>
+    <h1>Todoアプリ</h1>
+    <div id="date">
+        <label>日付</label>
+        <input id="datepicker" type="text" placeholder="日付を選択してください">
+    </div>
+    <fieldset >
+        <div id ="todolist" >
+            <p><input type="checkbox"><input type="text"></p>
+            <p><input type="checkbox"><input type="text"></p>
+            <p><input type="checkbox"><input type="text"></p>
+            <p><input type="checkbox"><input type="text"></p>
+            <p><input type="checkbox"><input type="text"></p>
+        <div>
+        <input type="button" id = "addTodo" value = "追加" onclick = "addTodo()">
+    </fieldset>
+        
+    <script>
+        $(function(){
+    
+            $("#datepicker").datepicker({
+                changeMonth: true,  // 月の切り替え
+                dateFormat:"yy/mm/dd",  // フォーマット
+                monthNames:["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"],
+                dayNamesMin:["日","月","火","水","木","金","土"],
+            });
+
+            // 順番を動かす
+            $('#todolist').sortable({
+                opacity: '0.5'
+                })
+                .selectable();
+
+        });
+    </script>
+</body>
+</html>
